@@ -177,9 +177,9 @@ export default function CoffeeBreak({ onContinue }: CoffeeBreakProps) {
 
             {/* Texto "BEBIENDO..." o "LISTO" */}
             <span 
-              style={{ fontFamily: "'Press Start 2P', cursive" }} 
               className="absolute z-10 text-white text-xs md:text-sm font-bold"
               style={{
+                fontFamily: "'Press Start 2P', cursive",
                 textShadow: `0 0 ${5 + waveAmplitude * 10}px #39ff14`,
                 bottom: '10px',
               }}>

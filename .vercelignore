@@ -1,0 +1,54 @@
+# Development files
+node_modules
+.git
+.gitignore
+.env.example
+.env.local
+.env.development
+
+# Build artifacts
+dist
+.vite
+.cache
+
+# Documentation
+README.md
+DEPLOYMENT.md
+*.md
+
+# Docker files
+Dockerfile
+docker-compose.yml
+nginx.conf
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs
+
+# Testing
+coverage
+.nyc_output
+
+# Patches
+patches
+
+# Lock files (keep pnpm-lock.yaml for reproducible builds)
+package-lock.json
+yarn.lock
+
+# TypeScript
+*.tsbuildinfo
+
+# Temporary files
+tmp
+temp
