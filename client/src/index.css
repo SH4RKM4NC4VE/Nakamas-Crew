@@ -1,0 +1,464 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --neon-green: #39ff14;
+  --dark-bg: #0a0a0a;
+  --black-bg: #000000;
+  --scanline-bg: rgba(0, 0, 0, 0.3);
+  --accent-cyan: #00bfff;
+  --primary: #39ff14;
+  --primary-foreground: #000000;
+  --sidebar-primary: #39ff14;
+  --sidebar-primary-foreground: #000000;
+  --chart-1: #39ff14;
+  --chart-2: #00bfff;
+  --chart-3: #39ff14;
+  --chart-4: #39ff14;
+  --chart-5: #39ff14;
+  --radius: 0.65rem;
+  --background: #000000;
+  --foreground: #39ff14;
+  --card: #0a0a0a;
+  --card-foreground: #39ff14;
+  --popover: #0a0a0a;
+  --popover-foreground: #39ff14;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #39ff14;
+  --muted: #333333;
+  --muted-foreground: #39ff14;
+  --accent: #00bfff;
+  --accent-foreground: #000000;
+  --destructive: #ff4444;
+  --destructive-foreground: #000000;
+  --border: #39ff14;
+  --input: #1a1a1a;
+  --ring: #39ff14;
+  --sidebar: #000000;
+  --sidebar-foreground: #39ff14;
+  --sidebar-accent: #00bfff;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #39ff14;
+  --sidebar-ring: #39ff14;
+}
+
+.dark {
+  --neon-green: #39ff14;
+  --dark-bg: #0a0a0a;
+  --black-bg: #000000;
+  --scanline-bg: rgba(0, 0, 0, 0.3);
+  --accent-cyan: #00bfff;
+  --primary: #39ff14;
+  --primary-foreground: #000000;
+  --sidebar-primary: #39ff14;
+  --sidebar-primary-foreground: #000000;
+  --background: #000000;
+  --foreground: #39ff14;
+  --card: #0a0a0a;
+  --card-foreground: #39ff14;
+  --popover: #0a0a0a;
+  --popover-foreground: #39ff14;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #39ff14;
+  --muted: #333333;
+  --muted-foreground: #39ff14;
+  --accent: #00bfff;
+  --accent-foreground: #000000;
+  --destructive: #ff4444;
+  --destructive-foreground: #000000;
+  --border: #39ff14;
+  --input: #1a1a1a;
+  --ring: #39ff14;
+  --sidebar: #000000;
+  --sidebar-foreground: #39ff14;
+  --sidebar-accent: #00bfff;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #39ff14;
+  --sidebar-ring: #39ff14;
+  --chart-1: #39ff14;
+  --chart-2: #00bfff;
+  --chart-3: #39ff14;
+  --chart-4: #39ff14;
+  --chart-5: #39ff14;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  .font-pixel {
+    font-family: 'Press Start 2P', cursive;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .text-glow {
+    text-shadow: 0 0 8px var(--neon-green), 0 0 15px var(--neon-green);
+  }
+
+  .arcade-frame {
+    @apply border-4 border-[#39ff14] bg-[#0a0a0a] p-8 relative;
+    box-shadow: 0 0 15px #39ff14, inset 0 0 15px #39ff14;
+  }
+
+  .scanlines::before {
+    content: '';
+    @apply absolute inset-0 w-full h-full pointer-events-none z-[100];
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3) 50%);
+    background-size: 100% 4px;
+  }
+
+  .button-arcade {
+    font-family: 'Press Start 2P', cursive;
+    @apply bg-[#39ff14] text-[#000000] border-2 border-[#39ff14] transition-all duration-200 ease-in-out;
+    box-shadow: 0 0 10px #39ff14;
+    text-shadow: none;
+  }
+
+  .button-arcade:hover:not(:disabled) {
+    @apply bg-[#000000] text-[#39ff14] -translate-y-0.5;
+  }
+
+  .button-arcade:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .progress-bar {
+    @apply bg-[#222] border border-[#39ff14] w-full h-4;
+  }
+
+  .progress-bar-inner {
+    @apply bg-[#39ff14] h-full transition-all duration-300 ease-in-out;
+  }
+
+  .main-section {
+    @apply min-h-screen p-4 md:p-8 flex flex-col justify-center items-center opacity-0 transition-opacity duration-1000 ease-in-out;
+    display: none;
+  }
+
+  .main-section.active {
+    @apply opacity-100;
+    display: flex;
+  }
+
+  .hidden-until-active {
+    @apply opacity-0 translate-y-5 transition-all duration-500;
+    transition-delay: 0.5s;
+  }
+
+  .active .hidden-until-active {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .ship-container {
+    @apply fixed w-20 h-20 z-50 transition-all duration-200 ease-linear;
+    top: 20%;
+    left: 5%;
+    image-rendering: pixelated;
+  }
+
+  .ship-container.hidden {
+    @apply invisible;
+  }
+
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+
+@keyframes coffee-fill {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 80%;
+  }
+}
+
+@keyframes rotate-reel {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bobbing {
+  0% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+}
+
+@keyframes grid-scroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -100%;
+  }
+}
+
+.coffee-liquid {
+  animation: coffee-fill 5s linear forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.reel.playing {
+  animation: rotate-reel 2s linear infinite;
+}
+
+#bottle-gif-container {
+  animation: bobbing 4s ease-in-out infinite;
+}
+
+.blockchain-ocean {
+  background-image:
+    linear-gradient(rgba(57, 255, 20, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 255, 20, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: grid-scroll 10s linear infinite;
+  @apply border-2 border-[#39ff14];
+  box-shadow: inset 0 0 10px #39ff14;
+}
+
+@keyframes steam-rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-40px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.coffee-cup-container {
+  transition: box-shadow 0.1s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .arcade-frame {
+    @apply p-4;
+  }
+
+  .button-arcade {
+    @apply px-3 py-2 text-xs;
+  }
+
+  .ship-container {
+    @apply hidden;
+  }
+}
+
+/* V3R M4P4 Button Styles */
+.button-arcade-premium {
+  background-color: #00bfff;
+  color: #000;
+  border: 4px solid #00bfff;
+  border-radius: 8px;
+  text-shadow: 2px 2px #39ff14;
+  box-shadow: 0 0 30px #00bfff, inset 0 0 10px #39ff14;
+  transition: all 0.1s ease-in-out;
+}
+
+.button-arcade-premium:hover {
+  background-color: #39ff14;
+  border-color: #39ff14;
+  box-shadow: 0 0 25px #39ff14, inset 0 0 15px #00bfff;
+  color: #000;
+  text-shadow: 2px 2px #00bfff;
+}
+
+.animate-explode {
+  animation: button-explode 0.8s forwards;
+}
+
+.animate-pixel-explode {
+  animation: pixel-fade-out 0.8s forwards;
+}
+
+@keyframes button-explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+}
+
+@keyframes pixel-fade-out {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes shockwave {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.animate-shockwave {
+  animation: shockwave 1s ease-out forwards;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes wave-slow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-30%);
+  }
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-wave {
+  animation: wave 8s linear infinite;
+}
+
+.animate-wave-slow {
+  animation: wave-slow 12s linear infinite;
+}
+
+.animate-float-particle {
+  animation: float-particle 4s ease-in-out infinite;
+}
+
